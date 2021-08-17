@@ -3,21 +3,6 @@ import sys
 input = sys.stdin.readline
 INF = int(1e9) # 무한을 의미하는 값으로 10억을 설정
 
-# 노드의 개수, 간선의 개수를 입력받기
-n, m = map(int, input().split())
-# 시작 노드 번호를 입력받기
-start = int(input())
-# 각 노드에 연결되어 있는 노드에 대한 정보를 담는 리스트를 만들기
-graph = [[] for i in range(n + 1)]
-# 최단 거리 테이블을 모두 무한으로 초기화
-distance = [INF] * (n + 1)
-
-# 모든 간선 정보를 입력받기
-for _ in range(m):
-    a, b, c = map(int, input().split())
-    # a번 노드에서 b번 노드로 가는 비용이 c라는 의미
-    graph[a].append((b, c))
-
 def dijkstra(start):
     q = []
     # 시작 노드로 가기 위한 최단 경로는 0으로 설정하여, 큐에 삽입
@@ -37,14 +22,25 @@ def dijkstra(start):
                 distance[i[0]] = cost
                 heapq.heappush(q, (cost, i[0]))
 
-# 다익스트라 알고리즘을 수행
+n, m, start = map(int, input().split())
+graph = [[] for i in range(n+1)]
+distance = [INF] * (n+1)
+
+for _ in range(m):
+    x, y, z = map(int, input().split())
+    graph[x].append((y, z))
+
 dijkstra(start)
 
-# 모든 노드로 가기 위한 최단 거리를 출력
-for i in range(1, n + 1):
-    # 도달할 수 없는 경우, 무한(INFINITY)이라고 출력
-    if distance[i] == INF:
-        print("INFINITY")
-    # 도달할 수 있는 경우 거리를 출력
-    else:
-        print(distance[i])
+# 도달할 수 있는 노드의 개수
+count = 0
+# 도달할 수 있는 노드 중에서, 가장 멀리 있는 노드와의 최단 거리
+max_distance = 0
+for d in distance:
+    # 도달할 수 있는 노드인 경우
+    if d != 1e9:
+        count += 1
+        max_distance = max(max_distance, d)
+
+# 시작 노드는 제외해야 하므로 count - 1을 출력
+print(count - 1, max_distance)
