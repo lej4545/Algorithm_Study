@@ -6,7 +6,6 @@ v, e = map(int, input().split())
 indegree = [0] * (v + 1)
 # 각 노드에 연결된 간선 정보를 담기 위한 연결 리스트 초기화
 graph = [[] for i in range(v + 1)]
-
 # 방향 그래프의 모든 간선 정보를 입력 받기
 for _ in range(e):
     a, b = map(int, input().split())
