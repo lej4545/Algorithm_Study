@@ -1,60 +1,65 @@
 import tkinter as tk
 
+
+def func(s):
+    global equation
+    equation += s
+    display_label.config(text=equation)
+
+def zero():
+    global equation
+    equation = ''
+    display_label.config(text='0')
+
 def calc():
-    a = e_up.get()
-    b = rbvar.get()
-    c = e_down.get()
-    if c == '0' and b == '/':
-        result = '0으로 나눌 수 없습니다.'
-    else:
-        result = format(eval(a + b + c), ".2f")
+    global equation
+    result = eval(equation)
+    display_label.config(text=result)
 
-    result_label.config(text=result)
+window = tk.Tk()
+window.title("계산기")
+window.geometry("400x210") #창 크기
+window.resizable(False,False) #창 고정
 
-# Tk 객체 인스턴스 생성
-root = tk.Tk()
 
-# 첫번째 인자 입력 박스
-e_up = tk.Entry(root)
-e_up.pack()
+display_label = tk.Label(window, text='')
+display_label.pack()
 
-# 두번째 인자 입력 박스
-e_down = tk.Entry(root)
-e_down.pack()
+sel = tk.StringVar()
+equation = ''
 
-# Radiobutton에서 사용되는 변수
-rbvar = tk.StringVar(root, 0)
-radios = []
-operator = ['+', '-', '*', '/']
+b1 = tk.Button(window, text=1, command=lambda: func('1'))
+b2 = tk.Button(window, text=2, command=lambda: func('2'))
+b3 = tk.Button(window, text=3, command=lambda: func('3'))
+b4 = tk.Button(window, text=4, command=lambda: func('4'))
+b5 = tk.Button(window, text=5, command=lambda: func('5'))
+b6 = tk.Button(window, text=6, command=lambda: func('6'))
+b7 = tk.Button(window, text=7, command=lambda: func('7'))
+b8 = tk.Button(window, text=8, command=lambda: func('8'))
+b9 = tk.Button(window, text=9, command=lambda: func('9'))
+bc = tk.Button(window, text='C', command=zero)
+b0 = tk.Button(window, text=0, command=lambda: func('0'))
+bm = tk.Button(window, text='=', command=calc)
+p1 = tk.Button(window, text='+', command=lambda: func('+'))
+p2 = tk.Button(window, text='-', command=lambda: func('-'))
+p3 = tk.Button(window, text='*', command=lambda: func('*'))
+p4 = tk.Button(window, text='/', command=lambda: func('/'))
 
-# rb 버튼 생성
-for idx in range(4):
-    rb = tk.Radiobutton(root, text='Button %s'%operator[idx], variable=rbvar, value=operator[idx], indicatoron=1)
-    radios.append(rb)
-    rb.pack()
+b1.place(x=50, y=50,width=50, height=25)
+b2.place(x=130, y=50, width=50, height=25)
+b3.place(x=210, y=50, width=50, height=25)
+b4.place(x=50, y=90, width=50, height=25)
+b5.place(x=130, y=90, width=50, height=25)
+b6.place(x=210, y=90, width=50, height=25)
+b7.place(x=50, y=130, width=50, height=25)
+b8.place(x=130, y=130, width=50, height=25)
+b9.place(x=210, y=130, width=50, height=25)
+bc.place(x=50, y=170, width=50, height=25)
+b0.place(x=130, y=170, width=50, height=25)
+bm.place(x=210, y=170, width=50, height=25)
+p1.place(x=290, y=50, width=50, height=25)
+p2.place(x=290, y=90, width=50, height=25)
+p3.place(x=290, y=130, width=50, height=25)
+p4.place(x=290, y=170, width=50, height=25)
 
-# # +버튼
-# plus_button = tk.Radiobutton(root, text='Button +', variable=rbvar, value='+', indicatoron=1)
-# plus_button.pack()
-#
-# # -버튼
-# minus_button = tk.Radiobutton(root, text='Button -', variable=rbvar, value='-', indicatoron=1)
-# minus_button.pack()
-#
-# # * 버튼
-# multi_button = tk.Radiobutton(root, text='Button *', variable=rbvar, value='*', indicatoron=1)
-# multi_button.pack()
-#
-# # / 버튼
-# divide_button = tk.Radiobutton(root, text='Button /', variable=rbvar, value='/', indicatoron=1)
-# divide_button.pack()
-
-# 버튼을 누르면 calc가 실행되는 함수
-result_bt = tk.Button(root, text='Result', command=calc)
-result_bt.pack()
-
-# calc에서 계산된 값을 출력할 함수
-result_label = tk.Label(root, text='결과 표시창', underline=3)
-result_label.pack()
-
-root.mainloop()
+window.mainloop()
