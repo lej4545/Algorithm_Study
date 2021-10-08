@@ -431,3 +431,281 @@ import turtle as t
 #         print(j, end=" ")
 #     print()
 
+# a = [10, 20, 30, 40, 20, 50, 20, 30, 60, 70, 20]
+# result = []
+# for i, v in enumerate(a):
+#     if v == 20:
+#         result.append(i)
+#
+# print(result)
+
+# a = [38, 21, 53, 62, 19]
+# min, max = a[0], a[0]
+# for i in a:
+#     if i <= min:
+#         min = i
+#     if i >= max:
+#         max = i
+#
+# print(min, max)
+
+# a = [38, 21, 53, 62, 19]
+# a.sort()
+# print(a[0],a[-1])
+
+# numbers = []
+#
+# for i in range(1,11):
+#     numbers.append(i)
+#
+# for j in numbers:
+#     if j % 2 != 0:
+#         numbers.remove(j)
+#
+# numbers.sort(reverse=True)
+# print(numbers)
+
+# a = ['alpha','foxtrot']
+# b = [i for i in a if len(i) == 5]
+# print(b)
+
+
+# while True:
+#     a, b = map(int, input().split())
+#     if (1 <= a <= 20) and (10 <= b <= 30) and (a < b):
+#         lst = [2**i for i in range(a, b+1)]
+#         del lst[1]
+#         del lst[-2]
+#         print(lst)
+#         break
+#     else:
+#         print('입력 범위가 잘 못 되었습니다. 다시 입력해주세요.')
+
+# ai_classes = {
+#      'class01' : [
+#                 {'name' : '서준', 'age' : 24},
+#                 {'name' : '하준', 'age' : 34},
+#                 {'name' : '도윤', 'age' : 37},
+#                 {'name' : '시윤', 'age' : 19},
+#                 {'name' : '은우', 'age' : 31}
+#      ],
+#      'class02' : [
+#                   {'name' : '지호', 'age' : 34},
+#                   {'name' : '예준', 'age' : 19},
+#                   {'name' : '동원', 'age' : 21},
+#                   {'name' : '민정', 'age' : 22},
+#                   {'name' : '효주', 'age' : 24}
+#      ]
+#  }
+#
+# for i in ai_classes.values():
+#     for j in i:
+#         if j['age'] >= 30:
+#             print(j['name'],':', j['age'],' / ',end="")
+
+# def operation(operator):
+#     a = int(input('첫번쨰 숫자를 입력하세요. '))
+#     b = int(input('두번쨰 숫자를 입력하세요. '))
+#     if operator == 1:
+#         result = a+b
+#     elif operator == 2:
+#         result = a-b
+#     elif operator == 3:
+#         result = a*b
+#     elif operator == 4:
+#         if b == 0:
+#             print('연산을 할 수 없습니다. 다시 입력해주세요.')
+#         else:
+#             result = a/b
+#     elif operator == 5:
+#         result = a%b
+#     return result
+#
+#
+# print('==================')
+# print('1. 더하기\n2. 빼기\n3. 곱하기\n4. 나누기\n5. 나머지 구하기\n6. 나가기')
+# print('==================')
+#
+# while True:
+#     operator = int(input('원하는 연산자를 입력하세요. '))
+#     if 0 < operator < 6:
+#         result = operation(operator)
+#         print("결과는 %.2f 입니다."%result)
+#     elif operator == 6:
+#         print('종료를 선택하셨습니다. 프로그램을 종료합니다..')
+#         break
+#     else:
+#         print('잘못입력하셨습니다. 다시 입력해 주세요.')
+
+# a = list(range(1,11))
+# b = list(map(lambda x: str(x) if x== 1 else float(x) if x== 2 else x+10,a))
+# def f(x):
+#     if x == 1:
+#         return str(x)
+#     elif x == 2:
+#         return float(x)
+#     else:
+#         return x + 10
+#
+# c = list(map(f,a))
+# print(c)
+#
+# plus_ten = lambda x : x + 10
+# print(plus_ten)
+#
+# data=plus_ten(1)
+# print(data)
+#
+# a1 = lambda x : x + 10
+# print(a1(10))
+#
+# y = 10
+# a_10 = lambda x : y + 10
+# print(a_10(10))
+#
+# a = [1, 2, 3, 4]
+# b = [2, 4, 6, 8]
+#
+# a_list = list(map(lambda x, y : x*y, a, b))
+# print(a_list)
+
+# from functools import reduce
+# def f(x, y):
+#     return x + y
+#
+# a = [1,2,3,4,5]
+# print(reduce(f, a))
+#
+# print(reduce(lambda x, y:x + y, a))
+
+# x = 10
+# def foo():
+#     global x
+#     x = 20
+#     print(x)
+# print(x)
+# foo()
+# print(x)
+
+# inFp = open("C:/Users/EunJin/Documents/data/data1.txt", 'r', encoding='utf-8')
+# inStr = inFp.readline()
+# print(inStr, end="")
+# inStr = inFp.readline()
+# print(inStr,end="")
+
+# filename = input('파일명을 입력하세요 :')
+# document = "C:/Users/EunJin/Documents/data/"+filename
+# inFp = open(document, 'r', encoding='utf-8')
+# inList = []
+# inList = inFp.readlines()
+# for i in inList:
+#     print(i,end="")
+# inFp.close()
+
+# inFp, outFp = None, None
+# inStr = ""
+# inFp = open('C:/Users/EunJin/Documents/data/data2.txt','r',encoding='utf-8')
+# outFp = open('C:/Users/EunJin/Documents/data/data2_copy.txt','w',encoding='utf-8')
+# inList = inFp.readlines()
+# for inStr in inList:
+#     outFp.write(inStr)
+
+# while True:
+#     outStr = inFp.readline()
+#     if outStr != "":
+#         outFp.write(outStr)
+#     else:
+#         break
+# inFp.close()
+# outFp.close()
+# print("--정상적으로 파일이 복사되었음--")
+
+# import datetime
+# print(datetime.datetime.now().strftime('%Y%m%d_%H%M%S'))
+
+from collections import deque
+
+
+# def solution(priorities, location):
+#     answer = 0
+#     dict_alpha = {}
+#     result = []
+#     result_idx = []
+#     for i in range(len(priorities)):
+#         dict_alpha[i] = priorities[i]
+#     dq = deque(priorities)
+#     while len(dq) > 1:
+#         a = dq.popleft()
+#         if a < max(dq):
+#             dq.append(a)
+#         else:
+#             result.append(a)
+#     a = dq.popleft()
+#     result.append(a)
+#
+#     idx = 0
+#     i = 0
+#     while True:
+#         if priorities[idx] != result[i]:
+#             idx += 1
+#         else:
+#             result_idx.append(idx)
+#             i += 1
+#             idx += 1
+#         if idx >= len(priorities):
+#             idx -= len(priorities)
+#         if i >= len(priorities):
+#             break
+#     answer = result_idx.index(location)+1
+#     return answer
+
+# class Person:
+#     def __init__(self, name, age, address, wallet):
+#         self.hello = '안녕하세요.'
+#         self.name = name
+#         self.age = age
+#         self.address = address
+#         self.__wallet = wallet
+#
+#     def pay(self, amount):
+#         self.__wallet -= amount
+#         print('이제 {0}원 남았네요.'.format(self.__wallet))
+#
+# maria = Person('마리아', 20, '서울시 서초구 반포동', 100000)
+# maria.pay(1000)
+
+# class OrangeBox:
+#     def __init__(self):
+#         self.__count = 10
+#     def __del__(self):
+#         print('Class종료')
+#     def AddBox(self, add_count):
+#         self.__count += add_count
+#     def SubBox(self, sub_count):
+#         self.__count -= sub_count
+#     def DelBox(self):
+#         self.__count = 0
+#     def CountBox(self):
+#         return self.__count
+#
+# MyOB = OrangeBox()
+# nData = int(input('추가 수량'))
+# MyOB.AddBox(nData)
+# print('현재 수량 %d'%MyOB.CountBox())
+#
+# nData = int(input('제거 수량'))
+
+# class Person:
+#     def __init__(self):
+#         print('Person __init__')
+#         self.hello = '안녕하세요.'
+#
+# class Student(Person):
+#     def __init__(self):
+#         print('Student __init__')
+#         super().__init__()
+#         self.school = '파이썬 코딩 도장'
+#
+# james = Student()
+# print(james.school)
+# print(james.hello)
